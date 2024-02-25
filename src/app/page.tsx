@@ -18,7 +18,6 @@ export default function Home() {
           <Products />
           <Contact />
           <CTA />
-
       </div>
     </>
   )

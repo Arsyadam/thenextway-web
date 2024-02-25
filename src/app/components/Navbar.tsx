@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Image from 'next/image'
+
 
 export default function Navbar() {
     const menuitems = [
@@ -17,72 +19,53 @@ export default function Navbar() {
       ];
     return (
         <>
-        <div className="mx-auto px-5 max-w-screen-xl ">
-            <header className="flex flex-col lg:flex-row justify-between items-center my-5 max-w-screen-xl " x-data="{ open: false }" x-init="$watch('open', value => console.log(value))">
-                <div className="flex w-full lg:w-auto items-center justify-between">
-                <a href="/" className="text-lg" >
-                <Image
-                    src='/thenextway-black.svg'
-                    alt="TheNextWay"
-                    width={100}
-                    height={20}
-                    />
-                </a>
-                <div className="hidden">
-                {/* @click="open = !open" */}
-                    <button className="text-gray-800">
-                    <svg
-                        fill="currentColor"
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <title>Menu</title>
-                        <path
-                        x-cloak
-                        x-show="open"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z"
-                        ></path>
-                        <path
-                        x-show="!open"
-                        fill-rule="evenodd"
-                        d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"
-                        ></path>
-                    </svg>
-                    </button>
-                </div>
-                </div>
-                {/* :class="{ 'block': open, 'hidden': !open }" */}
-                <nav
-                className="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0"
-                
-                x-transition>
-                <ul className="flex flex-col lg:flex-row lg:gap-3">
-                    {
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+
+<nav className="bg-white border-gray-200 dark:bg-gray-900">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Image
+            src='/thenextway-black.svg'
+            alt="TheNextWay"
+            width={100}
+            height={20}
+            />
+    </a>
+    <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span className="sr-only">Open main menu</span>
+        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+    <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+          <a href="/" className="block py-2 px-3 text-white bg-black rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+        </li>
+        
+        {
                     menuitems.map((item, index) => (
                         <>
 
                         {(
                             <li>
-                            <a
-                                href={item.path}
-                                className="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900">
-                                {item.title}
-                            </a>
+                           
+                            <a href={item.path} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">{item.title}</a>
                             </li>
+                            
                         )}
                         </>
                     ))
                     }
-                </ul>
-                <a href="#contact" className="bg-black px-4 py-2 ml-3 rounded-sm text-white hover:text-black hover:bg-gray-300 hover:border-black hover:border-2 transition-colors" >
-                    Contact
-                </a>
-                </nav>
-                
-            </header>
-        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
         </>
     )
 }
